@@ -1,5 +1,9 @@
 <template>
+<<<<<<< 0aeaf71b5b38e51c34cfe995e012f8d9b118ce41
     <div class="app-wrapper" >
+=======
+    <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}" >
+>>>>>>> 学习vuex
         <div class="sidebar-wrapper">
             <Sidebar class="sidebar-container"></Sidebar>
         </div>
@@ -19,7 +23,15 @@ export default {
     Navbar,
     AppMain
   },
+<<<<<<< 0aeaf71b5b38e51c34cfe995e012f8d9b118ce41
   computed: {
+=======
+  // computed相当于属性的一个实时计算，如果实时计算里关联了对象，那么当对象的某个值改变的时候，同事会出发实时计算。
+  computed: {
+    sidebar () {
+      return this.$store.state.app.sidebar
+    }
+>>>>>>> 学习vuex
   }
 }
 </script>
