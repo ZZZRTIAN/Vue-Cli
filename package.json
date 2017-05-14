@@ -15,10 +15,7 @@
     "babel-runtime": "^6.23.0",
     "element-ui": "^1.3.2",
     "jquery": "^3.2.1",
-<<<<<<< 0aeaf71b5b38e51c34cfe995e012f8d9b118ce41
-=======
     "js-cookie": "^2.1.4",
->>>>>>> 学习vuex
     "vue": "^2.2.6",
     "vue-router": "^2.3.1",
     "vuex": "^2.3.1"

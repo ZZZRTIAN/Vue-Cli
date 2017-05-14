@@ -1,14 +1,9 @@
 <template>
     <el-menu class="navbar" mode="horizontal">
         <!-- 菜单显示按钮 -->
-<<<<<<< 0aeaf71b5b38e51c34cfe995e012f8d9b118ce41
-        <Hamburger class="hamburger-container" :toggleClick="toggleSideBar" :is-active="active"></Hamburger>
-        <!-- 面包屑 -->
-        
-=======
+
         <Hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened" ></Hamburger>
         <!-- 面包屑 -->
->>>>>>> 学习vuex
         <el-dropdown class="avatar-container" trigger="click">
             <div class="avatar-wrapper">
                 <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
@@ -25,10 +20,7 @@
                         设置
                     </el-dropdown-item>
                 </router-link>
-<<<<<<< 0aeaf71b5b38e51c34cfe995e012f8d9b118ce41
                 <el-dropdown-item divided><span @click="logout" style="display:block;">退出登录</span></el-dropdown-item>
-=======
->>>>>>> 学习vuex
             </el-dropdown-menu>
         </el-dropdown>
     </el-menu>
@@ -41,15 +33,11 @@ export default {
   name: 'Navbar',
   data () {
     return {
-<<<<<<< 0aeaf71b5b38e51c34cfe995e012f8d9b118ce41
-      active: true
-=======
     }
   },
   computed: {
     sidebar () {
       return this.$store.getters.sidebar
->>>>>>> 学习vuex
     }
   },
   components: {

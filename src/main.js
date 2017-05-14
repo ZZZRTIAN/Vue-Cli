@@ -4,11 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
-<<<<<<< 0aeaf71b5b38e51c34cfe995e012f8d9b118ce41
-import store from './vuex/store'
-=======
 import store from './store'
->>>>>>> 学习vuex
 
 import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
