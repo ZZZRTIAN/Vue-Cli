@@ -10,22 +10,42 @@ import Foot from '@/components/footer'
 /* layout */
 import Layout from '../views/layout/Layout'
 
+// dashboard
+const dashboard = resolve => require(['../views/dashboard/index'], resolve)
+
+/* Introduction */
+const Introduction = resolve => require(['../views/introduction/index'], resolve)
+
+/* error page */
+const Error404 = resolve => require(['../views/error/404'], resolve)
+const Error401 = resolve => require(['../views/error/401'], resolve)
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      component: Layout
+      name: '首页',
+      hidden: true,
+      component: Layout,
+      redirect: '/dashboard',
+      children: [{ path: 'dashboard', component: dashboard }]
     },
+    {path: '/404', component: Error404, hidden: true},
+    {path: '/401', component: Error401, hidden: true},
     {
-      path: '/home',
-      name: 'Home',
-      component: Home
+      path: '/introduction',
+      component: Layout,
+      redirect: '/introduction/index',
+      icon: 'xinrenzhinan', // 图标
+      noDropdown: true, // 没有子
+      children: [{ path: 'index', component: Introduction, name: '简述' }]
     },
     {
       path: '/footer',
       name: 'Foot',
+      icon: 'zujian',
       component: Foot
     },
     {

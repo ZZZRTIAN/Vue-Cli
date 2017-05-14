@@ -5,6 +5,7 @@
         </div>
         <div class="main-container">
             <Navbar/>
+            <App-main/>
         </div>
     </div>
 </template>
@@ -32,13 +33,11 @@ export default {
     @import "src/styles/mixin.scss";
 
     .app-wrapper {
-        @include clearfix;      
+        @include clearfix;
         position: relative;
         height: 100%;
         width: 100%;
-        padding-left: 180px;
         &.hideSidebar {
-            padding-left: 40px;
             .sidebar-wrapper {
                 transform: translate(-140px, 0);
                 .sidebar-container {
@@ -46,11 +45,13 @@ export default {
                 }
                 &:hover {
                     transform: translate(0, 0);
-                     z-index: 1001;
                     .sidebar-container {
                         transform: translate(0, 0);
                     }
                 }
+            }
+            .main-container{
+                margin-left: 40px;
             }
         }
         .sidebar-wrapper {
@@ -59,7 +60,7 @@ export default {
             top: 0;
             bottom: 0;
             left: 0;
-            z-index: 2;
+            z-index: 1001;
             overflow-x: hidden;
             transition: all .28s ease-out;
             @include scrollBar;
@@ -68,9 +69,9 @@ export default {
             transition: all .28s ease-out;
         }
         .main-container {
-            width: 100%;
             min-height: 100%;
             transition: all .28s ease-out;
+            margin-left: 180px;
         }
     }
 </style>

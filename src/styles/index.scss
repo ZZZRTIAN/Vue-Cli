@@ -2,6 +2,7 @@
 @import './element-ui.scss';
 @import './mixin.scss';
 body {
+  margin: 0;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

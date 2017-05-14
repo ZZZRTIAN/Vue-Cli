@@ -1,12 +1,12 @@
 <template>
     <el-menu class="navbar" mode="horizontal">
         <!-- 菜单显示按钮 -->
-
         <Hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened" ></Hamburger>
         <!-- 面包屑 -->
+        <levelbar></levelbar>
         <el-dropdown class="avatar-container" trigger="click">
             <div class="avatar-wrapper">
-                <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
+                <img class="user-avatar" :src="'https://wdl.wallstreetcn.com/48a3e1e0-ea2c-4a4e-9928-247645e3428b?imageView2/1/w/80/h/80'">
                 <i class="el-icon-caret-bottom"/>
             </div>
             <el-dropdown-menu class="user-dropdown" slot="dropdown">
@@ -28,6 +28,7 @@
 
 <script>
 import Hamburger from '../../components/Hamburger'
+import Levelbar from './Levelbar'
 
 export default {
   name: 'Navbar',
@@ -41,7 +42,8 @@ export default {
     }
   },
   components: {
-    Hamburger
+    Hamburger,
+    Levelbar
   },
   methods: {
     toggleSideBar () {
