@@ -1,12 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-import Home from '@/components/home'
-import Page1 from '@/components/page01'
-import Page2 from '@/components/page02'
-import One from '@/components/children/one'
-import Foot from '@/components/footer'
-
 /* layout */
 import Layout from '../views/layout/Layout'
 
@@ -17,8 +10,14 @@ const dashboard = resolve => require(['../views/dashboard/index'], resolve)
 const Introduction = resolve => require(['../views/introduction/index'], resolve)
 
 /* error page */
-const Error404 = resolve => require(['../views/error/404'], resolve)
 const Error401 = resolve => require(['../views/error/401'], resolve)
+const Error404 = resolve => require(['../views/error/404'], resolve)
+
+/* news */
+const Form = resolve => require(['../views/news/form'], resolve)
+const Table = resolve => require(['../views/news/table'], resolve)
+
+/* components*/
 
 Vue.use(Router)
 
@@ -43,29 +42,25 @@ export default new Router({
       children: [{ path: 'index', component: Introduction, name: '简述' }]
     },
     {
-      path: '/footer',
-      name: 'Foot',
-      icon: 'zujian',
-      component: Foot
-    },
-    {
-      path: '/page1',
-      name: 'Page1',
-      component: Page1,
+      path: '/errorpage',
+      component: Layout,
+      redirect: 'noredirect',
+      name: '错误页面',
+      icon: '404',
       children: [
-        {
-          path: '/one', component: One
-        }
+        { path: '401', component: Error401, name: '401' },
+        { path: '404', component: Error404, name: '404' }
       ]
     },
     {
-      path: '/page2/:name',
-      name: 'Page2',
-      component: Page2,
+      path: '/news',
+      component: Layout,
+      redirect: 'noredirect',
+      name: '新闻管理',
+      icon: '',
       children: [
-        {
-          path: 'one', component: One
-        }
+        { path: 'table', component: Table, name: '新闻列表' },
+        { path: 'form', component: Form, name: '发布新闻' }
       ]
     }
   ]

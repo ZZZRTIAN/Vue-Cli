@@ -5,15 +5,22 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 import store from './store'
-// import NProgress from 'nprogress'
+import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import permission from './store/permission'
+
+// 顶部占位的
+import Sticky from './components/Sticky'
 
 import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import './styles/index.scss'
 import './components/Icon-svg/index'
 import './assets/iconfont/iconfont'
+
+// register globally 注册全局的
+// 置顶组件
+Vue.component('Sticky', Sticky)
 
 Vue.use(Vuex)
 Vue.use(ElementUi)
@@ -27,13 +34,17 @@ Vue.config.productionTip = false
 // 2）from: Route: 当前导航正要离开的路由
 // 3）next: Function: 一定要调用该方法来 resolve 这个钩子。
 router.beforeEach((to, from, next) => {
-  // NProgress.start() // 开启Progress
+  NProgress.start() // 开启Progress
   permission.init({ // 初始化权限
     roles: 'admin',
     router: router.options.routes
   })
   next()
 })
+
+router.afterEach(() => {
+  NProgress.done();
+});
 
 /* eslint-disable no-new */
 new Vue({
